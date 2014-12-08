@@ -51,12 +51,6 @@
         "./scripts/compact.bat",
         "./scripts/sysprep.bat"
       ]
-    },
-    {
-      "type": "shell",
-      "inline": [
-        "rm -rf /tmp/*"
-      ]
     }
   ],
   "post-processors": [
