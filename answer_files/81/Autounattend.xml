@@ -46,7 +46,7 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME</Key>
-                            <Value>Windows81</Value>
+                            <Value>Windows 8.1 Pro</Value>
                         </MetaData>
                     </InstallFrom>
                 </OSImage>
