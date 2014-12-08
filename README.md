@@ -5,6 +5,7 @@
 This repository contains Windows templates that can be used to create boxes for Vagrant using Packer ([Website](http://www.packer.io)) ([Github](http://github.com/mitchellh/packer)).
 
 This repo began by borrowing bits from the VeeWee Windows templates (https://github.com/jedi4ever/veewee/tree/master/templates). Modifications were made to work with Packer and the VMware Fusion / VirtualBox providers for Packer and Vagrant.
+Further work has been done based upon Joe Fitzgerald's original [Packer Windows](https://github.com/joefitzgerald/packer-windows) code.
 
 ### Packer Version
 
@@ -13,19 +14,10 @@ This repo began by borrowing bits from the VeeWee Windows templates (https://git
 ### Windows Versions
 
 The following Windows versions are known to work (built with VMware Fusion 6.0.4 and VirtualBox 4.3.12):
-<!--
-|                              | Develop                                                                                                                                                                                                               | Master                                                                                                                                                                                                             |
-| ---------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Windows 2008 R2 SP1 Standard | [![Build Status - Windows 2008 R2 SP1 Standard on Develop](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-develop-2008-r2)](https://packer.ci.cloudbees.com/job/packer-windows-develop-2008-r2/) | [![Build Status - Windows 2008 R2 SP1 Standard on Master](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-master-2008-r2)](https://packer.ci.cloudbees.com/job/packer-windows-master-2008-r2/) |
-| Windows 2012 Standard        | [![Build Status - Windows 2012 Standard on Develop](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-develop-2012)](https://packer.ci.cloudbees.com/job/packer-windows-develop-2012/)              | [![Build Status - Windows 2012 Standard on Master](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-master-2012)](https://packer.ci.cloudbees.com/job/packer-windows-master-2012/)              |
-| Windows 2012 R2 Standard     | [![Build Status - Windows 2012 R2 Standard on Develop](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-develop-2012-r2)](https://packer.ci.cloudbees.com/job/packer-windows-develop-2012-r2/)     | [![Build Status - Windows 2012 R2 Standard on Master](https://packer.ci.cloudbees.com/buildStatus/icon?job=packer-windows-master-2012-r2)](https://packer.ci.cloudbees.com/job/packer-windows-master-2012-r2/)     |
--->
 
  * Windows 2012 R2
  * Windows 2012 R2 Core
  * Windows 2012
- * Windows 2008 R2
- * Windows 2008 R2 Core
  * Windows 8.1
  * Windows 7
 
@@ -98,7 +90,7 @@ WinRM to communicate with the box.
 
 ### Getting Started
 
-Trial versions of Windows 2008 R2 / 2012 / 2012 R2 are used by default. These images can be used for 180 days without activation.
+Trial versions of Windows 2012 / 2012 R2 are used by default. These images can be used for 180 days without activation.
 
 Alternatively – if you have access to [MSDN](http://msdn.microsoft.com) or [TechNet](http://technet.microsoft.com/) – you can download retail or volume license ISO images and place them in the `iso` directory. If you do, you should update the relevent `.json` file, setting `iso_url` to `./iso/<path to your iso>.iso` and `iso_checksum` to `<the md5 of your iso>`. For example, to use the Windows 2008 R2 (With SP1) retail ISO:
 
@@ -114,8 +106,3 @@ Alternatively – if you have access to [MSDN](http://msdn.microsoft.com) or [Te
 
 Pull requests welcomed. Please ensure you create your edits in a branch off of the `develop` branch, not the `master` branch.
 
-### Acknowledgements
-
-[CloudBees](http://www.cloudbees.com) is providing a hosted [Jenkins](http://jenkins-ci.org/) master through their CloudBees FOSS program. We also use their [On-Premise Executor](https://developer.cloudbees.com/bin/view/DEV/On-Premise+Executors) feature to connect a physical [Mac Mini Server](http://www.apple.com/mac-mini/server/) running VMware Fusion.
-
-![Powered By CloudBees](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png "Powered By CloudBees")![Built On DEV@Cloud](http://www.cloudbees.com/sites/default/files/Button-Built-on-CB-1.png "Built On DEV@Cloud")
