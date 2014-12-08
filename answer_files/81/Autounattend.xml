@@ -19,7 +19,7 @@
                             <Letter>C</Letter>
                             <Order>1</Order>
                             <PartitionID>1</PartitionID>
-                            <Label>Windows 81</Label>
+                            <Label>Windows</Label>
                         </ModifyPartition>
                     </ModifyPartitions>
                     <DiskID>0</DiskID>
@@ -216,7 +216,7 @@
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateFileSizePercent /t REG_DWORD /d 0 /f</CommandLine>
                     <Order>20</Order>
-                    <Description>Zero Hibernation File</Description>
+                    <Description>Zero Hibernation File - Disable Fastboot</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateEnabled /t REG_DWORD /d 0 /f</CommandLine>
