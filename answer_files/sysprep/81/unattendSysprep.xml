@@ -17,14 +17,23 @@
             <UserLocale>en-US</UserLocale>
         </component>
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <OEMInformation>
+                <HelpCustomized>true</HelpCustomized>
+                <Manufacturer>Penn Manor School District</Manufacturer>
+                <SupportHours>Monday-Friday 7:30am to 4:30pm</SupportHours>
+                <SupportPhone>(717) 872-9520 x1776</SupportPhone>
+                <SupportURL>http://support.pennmanor.net</SupportURL>
+            </OEMInformation>
             <OOBE>
                 <HideEULAPage>true</HideEULAPage>
-                <ProtectYourPC>1</ProtectYourPC>
                 <NetworkLocation>Work</NetworkLocation>
+                <ProtectYourPC>1</ProtectYourPC>
+                <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+                <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
                 <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
             </OOBE>
-            <TimeZone>UTC</TimeZone>
-	    <FirstLogonCommands>
+            <TimeZone>Eastern Standard Time</TimeZone>
+            <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                 <CommandLine>cmd /c c:\"Program Files"\OpenSSH\uninstall.exe /S</CommandLine>
                 <Description>Uninstall OpenSSH</Description>
@@ -38,6 +47,10 @@
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ComputerName>*</ComputerName>
             <CopyProfile>false</CopyProfile>
+            <!-- Use generic volume license key for unlimited syspreps -->
+            <ProductKey>XC9B7-NBPP2-83J2H-RHMBY-92BT4</ProductKey>
+            <RegisteredOrganization>Penn Manor School District</RegisteredOrganization>
+            <OEMName>Penn Manor School District</OEMName>
         </component>
     </settings>
 </unattend>
