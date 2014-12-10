@@ -5,11 +5,11 @@
       "iso_url": "./iso/Windows8.1.iso",
       "iso_checksum_type": "md5",
       "iso_checksum": "f9ac831f06a760c722df0df34f1b9397",
-      "headless": false,
+      "headless": true,
       "boot_wait": "2m",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
-      "ssh_wait_timeout": "2h",
+      "ssh_wait_timeout": "5h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "guest_os_type": "Windows81_64",
       "disk_size": 61440,
@@ -19,6 +19,7 @@
         "./scripts/openssh.ps1",
         "./scripts/microsoft-updates.bat",
         "./scripts/dis-updates.ps1",
+        "./scripts/win-updates.ps1",
         "./scripts/oracle-cert.cer"
       ],
       "vboxmanage": [
