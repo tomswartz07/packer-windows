@@ -55,6 +55,14 @@ function Check-ContinueRestartOrEnd() {
     }
 }
 
+# Result code on downloading updates:
+# 0 = not started
+# 1 = in progress
+# 2 = succeeded
+# 3 = succeededwitherrors
+# 4 = failed
+# 5 = aborted
+
 function Install-WindowsUpdates() {
     $script:Cycles++
     LogWrite "Evaluating Available Updates with limit of $($MaxUpdatesPerCycle):"
