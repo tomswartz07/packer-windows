@@ -41,6 +41,14 @@
                 <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
             </FirstLogonCommands>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                <CommandLine>cmd /c c:\"Program Files"\Oracle\"VirtualBox Guest Additions"\uninst.exe /S</CommandLine>
+                <Description>Uninstall Virtualbox Guest Additions</Description>
+                <Order>99</Order>
+                <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+            </FirstLogonCommands>
         </component>
     </settings>
     <settings pass="specialize">
