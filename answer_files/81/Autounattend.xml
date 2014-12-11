@@ -31,6 +31,7 @@
                 <AcceptEula>true</AcceptEula>
                 <FullName>PM Administrator</FullName>
                 <Organization>Penn Manor School District</Organization>
+                <!-- Product Key from http://technet.microsoft.com/en-us/library/jj612867.aspx -->
                 <ProductKey>XC9B7-NBPP2-83J2H-RHMBY-92BT4
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
