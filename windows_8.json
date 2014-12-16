@@ -1,0 +1,65 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "./iso/Win8Pro_VLK_IU13.iso",
+      "iso_checksum_type": "md5",
+      "iso_checksum": "4e31c6f0a7862f8ce8931342ad984a12",
+      "headless": false,
+      "boot_wait": "2m",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "5h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "guest_os_type": "Windows8_64",
+      "disk_size": 61440,
+      "floppy_files": [
+        "./answer_files/8/Autounattend.xml",
+        "./answer_files/sysprep/unattendSysprep.xml",
+        "./scripts/openssh.ps1",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/dis-updates.ps1",
+        "./scripts/win-updates.ps1",
+        "./scripts/oracle-cert.cer"
+      ],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "4096"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
+        "./scripts/vm-guest-tools.bat",
+        "./scripts/vagrant-ssh.bat",
+        "./scripts/disable-auto-logon.bat",
+        "./scripts/enable-rdp.bat",
+        "./scripts/compile-dotnet-assemblies.bat",
+        "./scripts/compact.bat",
+        "./scripts/sysprep.bat"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_8_{{.Provider}}.box",
+      "vagrantfile_template": "vagrantfile-windows_8.template"
+    }
+  ]
+}
