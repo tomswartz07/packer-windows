@@ -46,7 +46,7 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME</Key>
-                            <Value>Windows 7 ENTERPRISE</Value>
+                            <Value>Windows 7 Professional</Value>
                         </MetaData>
                     </InstallFrom>
                 </OSImage>
@@ -268,7 +268,7 @@
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
             <!-- Rename computer here. -->
-            <ComputerName>vagrant-2012</ComputerName>
+            <ComputerName>vagrant-7</ComputerName>
             <TimeZone>Eastern Standard Time</TimeZone>
             <RegisteredOwner/>
         </component>
