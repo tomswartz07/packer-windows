@@ -46,10 +46,12 @@
       "disk_size": 61440,
       "floppy_files": [
         "./answer_files/7/Autounattend.xml",
-        "./scripts/dis-updates.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1",
+        "./answer_files/sysprep/unattendSysprep.xml",
         "./scripts/openssh.ps1",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/dis-updates.ps1",
+        "./scripts/win-updates.ps1",
+        "./scripts/sysprep.bat",
         "./scripts/oracle-cert.cer"
       ],
       "vboxmanage": [
