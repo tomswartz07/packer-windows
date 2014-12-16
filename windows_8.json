@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "./iso/Win8Pro_VLK_IU13.iso",
+      "iso_url": "./iso/Win8Pro.iso",
       "iso_checksum_type": "md5",
       "iso_checksum": "4e31c6f0a7862f8ce8931342ad984a12",
       "headless": false,
