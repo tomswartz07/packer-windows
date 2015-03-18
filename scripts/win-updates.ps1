@@ -142,6 +142,7 @@ function Install-WindowsUpdates() {
         $global:RestartRequired=1
     }
 
+    LogWrite "There are $($UpdatesToInstall.Count) updates currently queued."
     LogWrite 'Installing updates...'
 
     $Installer = $script:UpdateSession.CreateUpdateInstaller()

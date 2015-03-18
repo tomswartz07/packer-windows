@@ -37,7 +37,7 @@
                 <SynchronousCommand wcm:action="add">
                 <CommandLine>cmd /c c:\"Program Files"\OpenSSH\uninstall.exe /S</CommandLine>
                 <Description>Uninstall OpenSSH</Description>
-                <Order>99</Order>
+                <Order>98</Order>
                 <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
             </FirstLogonCommands>

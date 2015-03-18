@@ -1,0 +1,33 @@
+:: Install and configure most of the existing PM active directory software
+set DeploymentServer=\\pmdc2.pennmanor.net\installs
+
+:: Install Office 2013
+start /wait %DeploymentServer%\msoffice2013\setup.exe
+:: Custom Office Patch File
+msiexec /p %DeploymentServer%\msoffice2013\updates\pmsdcustom.MSP /qn
+echo "Office Setup Complete"
+
+:: Install Frontmotion Firefox
+msiexec /qn /i %DeploymentServer%\firefox\latest\FirefoxESR-latest.msi TRANSFORMS=%DeploymentServer%\firefox\latest\FirefoxESR-latest.mst
+echo "Firefox Setup Complete"
+
+:: Install Mimio
+msiexec /qn /i %DeploymentServer%\mimiostudio\latest\mimio-studio-latest.msi TRANSFORMS=%DeploymentServer%\mimiostudio\latest\mimio-studio-latest.mst
+echo "Mimio Studio Setup Complete"
+
+:: Install Splashtop
+msiexec /qn /i %DeploymentServer%\Splashtop\latest\Splashtop-latest.msi
+echo "Splashtop Setup Complete"
+
+:: Install ownCloud Client
+msiexec /qn /i %DeploymentServer%\ownCloud\owncloud-1.8.0.msi
+echo "ownCloud Setup Complete"
+
+:: Configure Comets Wireless
+start %DeploymentServer%\comets\comets.bat
+echo "Comets WiFi Setup Complete"
+
+:: Re-Run Windows Updates
+:: This should be run LAST, so that any previous software installs (especially Office) get updates
+:: Further, the win-updates script on %DeploymentServer is modified so that SSH doesn't get reinstalled.
+powershell -Command "%DeploymentServer%\win-updates.ps1"
