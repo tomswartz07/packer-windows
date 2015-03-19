@@ -1,6 +1,9 @@
 :: Install and configure most of the existing PM active directory software
 set DeploymentServer=\\pmdc2.pennmanor.net\installs
 
+:: Set up remote file mounts
+net use %DeploymentServer% /user:pmsd_dj <PASSWORD>
+
 :: Install Office 2013
 start /wait %DeploymentServer%\msoffice2013\setup.exe
 :: Custom Office Patch File
