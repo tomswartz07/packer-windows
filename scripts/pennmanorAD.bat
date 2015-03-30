@@ -28,8 +28,11 @@ echo "ownCloud Setup Complete"
 
 :: Install the various Ninite Apps
 :: Use a pre-defined list of apps as input
-set Selections=<%DeploymentServer%\ninite\selections.txt
-start %DeploymentServer%\ninite\NiniteOne.exe /silent /select %Selections% /allusers
+set /p Selections=<%DeploymentServer%\ninite\selections.txt
+echo "Installing Ninite Software"
+echo "Selected: %Selections%"
+start /wait %DeploymentServer%\ninite\NiniteOne.exe /silent /allusers /disableshortcuts /select %Selections%
+echo "Installed Ninite Software"
 
 :: Configure Comets Wireless
 start %DeploymentServer%\comets\comets.bat
