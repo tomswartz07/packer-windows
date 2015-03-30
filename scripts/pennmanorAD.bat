@@ -26,6 +26,11 @@ echo "Splashtop Setup Complete"
 msiexec /qn /i %DeploymentServer%\ownCloud\owncloud-1.8.0.msi
 echo "ownCloud Setup Complete"
 
+:: Install the various Ninite Apps
+:: Use a pre-defined list of apps as input
+set Selections=<%DeploymentServer%\ninite\selections.txt
+start %DeploymentServer%\ninite\NiniteOne.exe /silent /select %Selections% /allusers
+
 :: Configure Comets Wireless
 start %DeploymentServer%\comets\comets.bat
 echo "Comets WiFi Setup Complete"
