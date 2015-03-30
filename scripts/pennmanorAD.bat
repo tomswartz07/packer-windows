@@ -1,3 +1,4 @@
+@echo off
 :: Install and configure most of the existing PM active directory software
 set DeploymentServer=\\pmdc2.pennmanor.net\installs
 
