@@ -39,10 +39,18 @@ echo "Installed Ninite Software"
 start %DeploymentServer%\comets\comets.bat
 echo "Comets WiFi Setup Complete"
 
+:: Create the IT Tools Folders in the main directory
+if not exist "C:\IT_Tools" mkdir C:\IT_Tools
+echo "IT Tools Folder Created"
+
 :: Set up Powershell execution policy for current user (admin)
 :: This allows provisioning scripts to be run as local admin during the setup phase
 :: See: https://technet.microsoft.com/en-us/library/hh849812.aspx
 powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+
+:: Remove the useless Windows Apps
+:: Photos and Video are not worth the hassle, so get them out of the base image.
+powershell -Command "%DeploymentServer%\windowsMetroApps\windowsApps.ps1"
 
 :: Re-Run Windows Updates
 :: This should be run LAST, so that any previous software installs (especially Office) get updates
