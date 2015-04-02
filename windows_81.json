@@ -12,6 +12,7 @@
       "ssh_wait_timeout": "5h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer build complete.\"",
       "guest_os_type": "Windows81_64",
+      "vm_name": "Win81Packer",
       "disk_size": 61440,
       "floppy_files": [
         "./answer_files/81/Autounattend.xml",
