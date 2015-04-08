@@ -20,3 +20,7 @@ For example, you might want to start with one of the following:
 	* File Name: en_windows_server_2012_vl_x64_dvd_917758.iso
 	* SHA1 Hash: 063BC26ED45C50D3745CCAD52DD7B3F3CE13F36D
 	* Direct Download: http://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=50573&activexDisabled=true&akamaiDL=false
+* Windows 8.1 Pro:
+	* File Name: Windows8.1.iso
+	* SHA1 Hash: cfcdf895679a5116f7f1c6406c20f99a1f850e49
+	* Direct Download: http://it.pennmanor.net/Win8.1.iso
