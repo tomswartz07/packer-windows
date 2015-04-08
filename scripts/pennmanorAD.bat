@@ -6,42 +6,47 @@ set DeploymentServer=\\pmdc2.pennmanor.net\installs
 net use %DeploymentServer% /user:pmsd_dj <PASSWORD>
 
 :: Install Office 2013
+echo %time% :: Starting Office Setup
 start /wait %DeploymentServer%\msoffice2013\setup.exe
 :: Custom Office Patch File
 msiexec /p %DeploymentServer%\msoffice2013\updates\pmsdcustom.MSP /qn
-echo "Office Setup Complete"
+echo %time% :: Office Setup Complete
 
 :: Install Frontmotion Firefox
+echo %time% :: Starting Firefox Setup
 msiexec /qn /i %DeploymentServer%\firefox\latest\FirefoxESR-latest.msi TRANSFORMS=%DeploymentServer%\firefox\latest\FirefoxESR-latest.mst
-echo "Firefox Setup Complete"
+echo %time% :: Firefox Setup Complete
 
 :: Install Mimio
+echo %time% :: Starting Mimio Setup
 msiexec /qn /i %DeploymentServer%\mimiostudio\latest\mimio-studio-latest.msi TRANSFORMS=%DeploymentServer%\mimiostudio\latest\mimio-studio-latest.mst
-echo "Mimio Studio Setup Complete"
+echo %time% :: Mimio Studio Setup Complete
 
 :: Install Splashtop
+echo %time% :: Starting Splashtop Setup
 msiexec /qn /i %DeploymentServer%\Splashtop\latest\Splashtop-latest.msi
-echo "Splashtop Setup Complete"
+echo %time% :: Splashtop Setup Complete
 
 :: Install ownCloud Client
+echo %time% :: Starting ownCloud Setup
 msiexec /qn /i %DeploymentServer%\ownCloud\owncloud-1.8.0.msi
-echo "ownCloud Setup Complete"
+echo %time% :: ownCloud Setup Complete
 
 :: Install the various Ninite Apps
 :: Use a pre-defined list of apps as input
 set /p Selections=<%DeploymentServer%\ninite\selections.txt
-echo "Installing Ninite Software"
-echo "Selected: %Selections%"
+echo %time% :: Installing Ninite Software
+echo Selected: %Selections%
 start /wait %DeploymentServer%\ninite\NiniteOne.exe /silent /allusers /disableshortcuts /select %Selections%
-echo "Installed Ninite Software"
+echo %time% :: Installed Ninite Software
 
 :: Configure Comets Wireless
 start %DeploymentServer%\comets\comets.bat
-echo "Comets WiFi Setup Complete"
+echo %time% :: Comets WiFi Setup Complete
 
 :: Create the IT Tools Folders in the main directory
 if not exist "C:\IT_Tools" mkdir C:\IT_Tools
-echo "IT Tools Folder Created"
+echo %time% :: IT Tools Folder Created
 
 :: Set up Powershell execution policy for current user (admin)
 :: This allows provisioning scripts to be run as local admin during the setup phase
