@@ -46,7 +46,7 @@ echo "IT Tools Folder Created"
 :: Set up Powershell execution policy for current user (admin)
 :: This allows provisioning scripts to be run as local admin during the setup phase
 :: See: https://technet.microsoft.com/en-us/library/hh849812.aspx
-powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force"
 
 :: Remove the useless Windows Apps
 :: Photos and Video are not worth the hassle, so get them out of the base image.
