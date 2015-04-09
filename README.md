@@ -7,6 +7,8 @@ This repository contains Windows templates that can be used to create boxes for 
 This repo began by borrowing bits from the VeeWee Windows templates (https://github.com/jedi4ever/veewee/tree/master/templates). Modifications were made to work with Packer and the VMware Fusion / VirtualBox providers for Packer and Vagrant.
 Further work has been done based upon Joe Fitzgerald's original [Packer Windows](https://github.com/joefitzgerald/packer-windows) code.
 
+These provisioned machines are ultimately used as our 'Golden Masters' for OS deployment.
+
 ### Packer Version
 
 [Packer](https://github.com/mitchellh/packer/blob/master/CHANGELOG.md) `0.5.1` or greater is required.
@@ -15,11 +17,7 @@ Further work has been done based upon Joe Fitzgerald's original [Packer Windows]
 
 The following Windows versions are known to work (built with VMware Fusion 6.0.4 and VirtualBox 4.3.12):
 
- * Windows 2012 R2
- * Windows 2012 R2 Core
- * Windows 2012
  * Windows 8.1
- * Windows 7
 
 ### Windows Editions
 

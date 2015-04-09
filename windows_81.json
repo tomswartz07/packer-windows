@@ -8,7 +8,7 @@
       ],
       "iso_checksum_type": "md5",
       "iso_checksum": "f9ac831f06a760c722df0df34f1b9397",
-      "headless": true,
+      "headless": false,
       "boot_wait": "2m",
       "ssh_username": "admin",
       "ssh_password": "admin",
@@ -31,13 +31,13 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "4096"
+          "8192"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "2"
+          "4"
         ]
       ]
     }
