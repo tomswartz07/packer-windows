@@ -28,3 +28,8 @@ ForEach ($App in $AppList) {
    Remove-AppxProvisionedPackage -online -packagename ($AppxPackage.PackageName) -ErrorAction SilentlyContinue
    Remove-AppxPackage ($AppxPackage.PackageName) -ErrorAction SilentlyContinue
 }
+
+# Also remove the Photos App, which is (conveniently) part of the OS, as of Win8.1
+attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -S
+attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -R
+del /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk"

@@ -53,10 +53,6 @@ echo %time% :: IT Tools Folder Created
 :: See: https://technet.microsoft.com/en-us/library/hh849812.aspx
 powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force"
 
-:: Remove the useless Windows Apps
-:: Photos and Video are not worth the hassle, so get them out of the base image.
-powershell -Command "%DeploymentServer%\windowsMetroApps\windowsApps.ps1"
-
 :: Re-Run Windows Updates
 :: This should be run LAST, so that any previous software installs (especially Office) get updates
 :: Further, the win-updates script on %DeploymentServer is modified so that SSH doesn't get reinstalled.
