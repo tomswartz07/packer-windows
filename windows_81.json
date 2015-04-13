@@ -21,6 +21,7 @@
         "./answer_files/81/Autounattend.xml",
         "./answer_files/sysprep/unattendSysprep.xml",
         "./scripts/openssh.ps1",
+        "./scripts/windowsApps.ps1",
         "./scripts/microsoft-updates.bat",
         "./scripts/dis-updates.ps1",
         "./scripts/win-updates.ps1",
@@ -49,7 +50,7 @@
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
         "./scripts/vm-guest-tools.bat",
-        "./scripts/windowsApps.ps1",
+        "./scripts/windowsApps.bat",
         "./scripts/pennmanorAD.bat",
         "./scripts/vagrant-ssh.bat",
         "./scripts/disable-auto-logon.bat",
