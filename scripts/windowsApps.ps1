@@ -32,4 +32,4 @@ ForEach ($App in $AppList) {
 # Also remove the Photos App, which is (conveniently) part of the OS, as of Win8.1
 attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -S
 attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -R
-del /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk"
+Remove-Item -Path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -Force
