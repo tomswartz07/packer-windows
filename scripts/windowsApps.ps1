@@ -3,7 +3,7 @@
 # Seriously, who uses these dumb things?
 #
 # To get the name of the packages:
-# - Dism.exe /online /get-ProvisionedAppxPackages 
+# - Dism.exe /online /get-ProvisionedAppxPackages
 #
 # Alternately, on a live machine, you can run:
 # - Dism.exe /online /Remove-ProvisionedAppxPackage /PackageName:microsoft.windowsphotos_16.4.4396.311_x64__8wekyb3d8bbwe
