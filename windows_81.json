@@ -32,13 +32,13 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "4096"
+          "8192"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "2"
+          "4"
         ]
       ]
     }
@@ -63,8 +63,10 @@
   ],
   "post-processors": [
     {
-      "type": "compress",
-      "output": "windows_81.tar.gz"
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_81Tech.box",
+      "vagrantfile_template": "vagrantfile-windows_81.template"
     }
   ]
 }
