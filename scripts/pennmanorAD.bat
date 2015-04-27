@@ -8,9 +8,15 @@ net use %DeploymentServer% /user:pmsd_dj <PASSWORD>
 :: Install Office 2013
 echo %time% :: Starting Office Setup
 start /wait %DeploymentServer%\msoffice2013\setup.exe
-:: Custom Office Patch File
-msiexec /p %DeploymentServer%\msoffice2013\updates\pmsdcustom.MSP /qn
 echo %time% :: Office Setup Complete
+
+:: Install the various Ninite Apps
+:: Use a pre-defined list of apps as input
+set /p Selections=<%DeploymentServer%\ninite\selections.txt
+echo %time% :: Installing Ninite Software
+echo Selected: %Selections%
+start /wait %DeploymentServer%\ninite\NiniteOne.exe /silent /disableautoupdate /allusers /disableshortcuts /select %Selections%
+echo %time% :: Installed Ninite Software
 
 :: Install Frontmotion Firefox
 echo %time% :: Starting Firefox Setup
@@ -32,21 +38,17 @@ echo %time% :: Starting ownCloud Setup
 msiexec /qn /i %DeploymentServer%\ownCloud\owncloud-1.8.0.msi
 echo %time% :: ownCloud Setup Complete
 
-:: Install the various Ninite Apps
-:: Use a pre-defined list of apps as input
-set /p Selections=<%DeploymentServer%\ninite\selections.txt
-echo %time% :: Installing Ninite Software
-echo Selected: %Selections%
-start /wait %DeploymentServer%\ninite\NiniteOne.exe /silent /allusers /disableshortcuts /select %Selections%
-echo %time% :: Installed Ninite Software
-
 :: Configure Comets Wireless
 start %DeploymentServer%\comets\comets.bat
 echo %time% :: Comets WiFi Setup Complete
 
 :: Create the IT Tools Folders in the main directory
-if not exist "C:\IT_Tools" mkdir C:\IT_Tools
+if not exist "C:\IT Tools" mkdir "C:\IT Tools"
 echo %time% :: IT Tools Folder Created
+
+:: Populate the IT Tools folder with the handy-dandy Windows Update Script
+xcopy /y "%DeploymentServer%\win-updates.ps1" "C:\IT Tools"
+echo %time% :: Created WinUpdates powershell script in IT Tools Folder
 
 :: Set up Powershell execution policy for current user (admin)
 :: This allows provisioning scripts to be run as local admin during the setup phase
