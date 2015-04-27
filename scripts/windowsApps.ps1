@@ -3,7 +3,7 @@
 # Seriously, who uses these dumb things?
 #
 # To get the name of the packages:
-# - Dism.exe /online /get-ProvisionedAppxPackages 
+# - Dism.exe /online /get-ProvisionedAppxPackages
 #
 # Alternately, on a live machine, you can run:
 # - Dism.exe /online /Remove-ProvisionedAppxPackage /PackageName:microsoft.windowsphotos_16.4.4396.311_x64__8wekyb3d8bbwe
@@ -32,4 +32,4 @@ ForEach ($App in $AppList) {
 # Also remove the Photos App, which is (conveniently) part of the OS, as of Win8.1
 attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -S
 attrib "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -R
-del /Q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk"
+Remove-Item -Path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PhotosApp.lnk" -Force
