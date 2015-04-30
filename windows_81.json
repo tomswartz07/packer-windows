@@ -65,6 +65,13 @@
     {
       "type": "compress",
       "output": "windows_81.tar.gz"
+    },
+    {
+      "type": "vagrant",
+      "compression_level": 9,
+      "keep_input_artifact": false,
+      "output": "windows_81Tech.box",
+      "vagrantfile_template": "vagrantfile-windows_81.template"
     }
   ]
 }
