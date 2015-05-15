@@ -4,13 +4,13 @@
 Vagrant.require_version ">= 1.6.2"
 
 Vagrant.configure("2") do |config|
-    config.vm.define "vagrant-windows-81"
+    config.vm.define "Windows81Tech"
     config.vm.box = "windows_81"
     config.vm.communicator = "winrm"
 
     # Admin user name and password
-    config.winrm.username = "vagrant"
-    config.winrm.password = "vagrant"
+    config.winrm.username = "admin"
+    config.winrm.password = "admin"
 
     config.vm.guest = :windows
     config.windows.halt_timeout = 15
