@@ -4,7 +4,7 @@
       "type": "virtualbox-iso",
       "iso_urls": [
         "./iso/Windows10_InsiderPreview_x64_EN-US_10074.iso",
-        "http://it.pennmanor.net/Win8.1.iso"
+        "http://go.microsoft.com/fwlink/p/?LinkId=522144"
       ],
       "iso_checksum_type": "md5",
       "iso_checksum": "307f91dfc833d88ab37e138e55bc6195",
