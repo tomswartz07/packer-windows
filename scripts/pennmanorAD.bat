@@ -4,6 +4,7 @@ set DeploymentServer=\\pmdc2.pennmanor.net\installs
 
 :: Set up remote file mounts
 net use %DeploymentServer% /user:pmsd_dj <PASSWORD>
+echo %time% :: Using Deployment Server %DeploymentServer%
 
 :: Install Office 2013
 echo %time% :: Starting Office Setup
