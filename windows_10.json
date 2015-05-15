@@ -1,0 +1,70 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_urls": [
+        "./iso/Windows10_InsiderPreview_x64_EN-US_10074.iso",
+        "http://it.pennmanor.net/Win8.1.iso"
+      ],
+      "iso_checksum_type": "md5",
+      "iso_checksum": "307f91dfc833d88ab37e138e55bc6195",
+      "headless": false,
+      "boot_wait": "1m",
+      "boot_command": "<enter>",
+      "ssh_username": "admin",
+      "ssh_password": "admin",
+      "ssh_wait_timeout": "5h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer build complete.\"",
+      "guest_os_type": "Windows10_64",
+      "vm_name": "Win10Packer",
+      "disk_size": 61440,
+      "floppy_files": [
+        "./answer_files/10/Autounattend.xml",
+        "./answer_files/sysprep/unattendSysprep.xml",
+        "./scripts/openssh.ps1",
+        "./scripts/windowsApps.ps1",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/dis-updates.ps1",
+        "./scripts/win-updates.ps1",
+        "./scripts/oracle-cert.cer"
+      ],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "8192"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "4"
+        ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
+        "./scripts/pennmanorAD.bat",
+        "./scripts/vagrant-ssh.bat",
+        "./scripts/disable-auto-logon.bat",
+        "./scripts/enable-rdp.bat",
+        "./scripts/compile-dotnet-assemblies.bat",
+        "./scripts/sysprep.bat"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_10Tech.box",
+      "vagrantfile_template": "vagrantfile-windows_10.template"
+    }
+  ]
+}
