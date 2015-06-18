@@ -123,6 +123,9 @@ Jenkins is a Continuous Integration program, that can be used for regularly sche
 Regularly building the image has the boon of always assuring that the available image is up to date.
 
 #### Jenkins Slave
+Following the Packer-io build, this process will be working with 'raw' hard drive images.
+Because of this, you'll need a very large amount of free drive space.
+
 The 'slave', or the box that will build the image must have the following:
 
 - Packer-IO
