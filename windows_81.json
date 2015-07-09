@@ -51,15 +51,31 @@
       "scripts": [
         "./scripts/vm-guest-tools.bat",
         "./scripts/windowsApps.bat",
-        "./scripts/pennmanorAD.bat",
-        "./scripts/updates.bat",
+        "./scripts/pennmanorAD.bat"
+      ]
+    },
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
+        "./scripts/updates.bat"
+      ],
+      "pause_before": "5m"
+    },
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
         "./scripts/vagrant-ssh.bat",
         "./scripts/disable-auto-logon.bat",
         "./scripts/enable-rdp.bat",
         "./scripts/compile-dotnet-assemblies.bat",
         "./scripts/compact.bat",
         "./scripts/sysprep.bat"
-      ]
+      ],
+      "pause_before": "5m"
     }
   ],
   "post-processors": [
