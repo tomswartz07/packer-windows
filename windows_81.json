@@ -52,6 +52,7 @@
         "./scripts/vm-guest-tools.bat",
         "./scripts/windowsApps.bat",
         "./scripts/pennmanorAD.bat",
+        "./scripts/updates.bat",
         "./scripts/vagrant-ssh.bat",
         "./scripts/disable-auto-logon.bat",
         "./scripts/enable-rdp.bat",
