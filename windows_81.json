@@ -45,14 +45,21 @@
   ],
   "provisioners": [
     {
+      "type": "windows-restart",
+      "restart_timeout": "1h"
+    },
+    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "./scripts/vm-guest-tools.bat",
         "./scripts/windowsApps.bat",
         "./scripts/pennmanorAD.bat"
       ]
+    },
+    {
+      "type": "windows-restart",
+      "restart_timeout": "1h"
     },
     {
       "type": "shell",
@@ -64,11 +71,14 @@
       "pause_before": "5m"
     },
     {
+      "type": "windows-restart",
+      "restart_timeout": "1h"
+    },
+    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "./scripts/vagrant-ssh.bat",
         "./scripts/disable-auto-logon.bat",
         "./scripts/enable-rdp.bat",
         "./scripts/compile-dotnet-assemblies.bat",
