@@ -9,7 +9,7 @@ powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force"
 :: This should be run LAST, so that any previous software installs (especially Office) get updates
 :: Use the pennmanorAD.bat deployed version of script, as it prevents SSH reinstall
 echo %time% :: Starting WinUpdates powershell script in IT Tools Folder
-powershell -Command "C:\IT Tools\win-updates.ps1"
+powershell -Command "&'C:\IT Tools\win-updates.ps1'"
 
 :: One last restart before continuing with the process.
 echo %time% :: Windows Updates complete, restarting.
