@@ -230,6 +230,16 @@
                     <Order>22</Order>
                     <Description>Disable password expiration for PM local admin user</Description>
                 </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer\ /v GoToDesktopOnSignIn /t REG_DWORD /d 1 /f</CommandLine>
+                    <Order>23</Order>
+                    <Description>Enable 'Boot to Desktop' to allow Hypervisor to monitor progress</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe DELETE "HKCU\Control Panel\Desktop" /v SCRNSAVE.EXE /f</CommandLine>
+                    <Order>24</Order>
+                    <Description>Prevent Screen Blanking for Admin provisioner user</Description>
+                </SynchronousCommand>
                 <!-- WITHOUT WINDOWS UPDATES -->
                 <!--
                 <SynchronousCommand wcm:action="add">
