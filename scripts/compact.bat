@@ -4,7 +4,7 @@ if not exist "C:\Windows\Temp\7z920-x64.msi" (
 msiexec /qb /i C:\Windows\Temp\7z920-x64.msi
 
 if not exist "C:\Windows\Temp\SDelete.zip" (
-  powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://download.sysinternals.com/files/sdelete.zip', 'C:\Windows\Temp\SDelete.zip')" <NUL
+  powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://download.sysinternals.com/files/SDelete.zip', 'C:\Windows\Temp\SDelete.zip')" <NUL
 )
 
 if not exist "C:\Windows\Temp\sdelete.exe" (
