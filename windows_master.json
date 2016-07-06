@@ -137,7 +137,8 @@
     },
     {
       "type": "windows-restart",
-      "restart_timeout": "1h"
+      "restart_timeout": "1h",
+      "pause_before": "2m"
     },
     {
       "type": "shell",
@@ -145,11 +146,13 @@
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
         "./scripts/pennmanorAD.bat"
-      ]
+      ],
+      "pause_before": "5m"
     },
     {
       "type": "windows-restart",
-      "restart_timeout": "1h"
+      "restart_timeout": "1h",
+      "pause_before": "5m"
     },
     {
       "type": "shell",
