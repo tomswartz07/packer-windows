@@ -165,6 +165,15 @@
       "restart_timeout": "1h"
     },
     {
+      "type": "powershell",
+      "remote_path": "/tmp/powershell.ps1",
+      "scripts": [
+        "./scripts/windows10apps.ps1"
+      ],
+      "pause_before": "2m",
+      "only": ["Windows 10"]
+    },
+    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",

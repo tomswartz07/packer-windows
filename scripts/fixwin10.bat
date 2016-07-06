@@ -1,3 +1,5 @@
+:: Fix various Windows 10 'features' and options
+
 :: Disable Telemetry
 ::
 echo "" > C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl
@@ -5,15 +7,15 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTeleme
 
 :: Disable Diagnosics Tracking Service
 ::
-sc config "dwmappushservice" start= disabled
 sc stop "dmwappushservice"
-sc config "DiagTrack" start= disabled
+sc config "dwmappushservice" start= disabled
 sc stop "DiagTrack"
+sc config "DiagTrack" start= disabled
 
 :: Disable Touch Screen Keyboard
 ::
-sc config "TabletInputService" start= disabled
 sc stop "TabletInputService"
+sc config "TabletInputService" start= disabled
 
 :: Disable P2P Updates
 :: Options are:

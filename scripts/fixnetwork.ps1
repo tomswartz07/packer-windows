@@ -19,3 +19,4 @@ $connections = $networkListManager.GetNetworkConnections()
                         $_.GetNetwork().SetCategory(1)
                         Write-Host $_.GetNetwork().GetName()"changed to category"$_.GetNetwork().GetCategory()
         }
+$net = get-netconnectionprofile;Set-NetConnectionProfile -Name $net.Name -NetworkCategory Private
