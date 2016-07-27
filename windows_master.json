@@ -8,7 +8,7 @@
       ],
       "iso_checksum_type": "md5",
       "iso_checksum": "7d5ae68f46e62914224c45084e44e83f",
-      "headless": false,
+      "headless": true,
       "boot_wait": "2m",
       "ssh_username": "admin",
       "ssh_password": "admin",
@@ -90,11 +90,11 @@
       "name": "Windows 10",
       "iso_urls": [
         "./iso/Windows 10 ver. 1511.iso",
-        "http://go.microsoft.com/fwlink/p/?LinkId=522144"
+        "http://it.pennmanor.net/Windows10ver1511.iso"
       ],
       "iso_checksum_type": "none",
       "output_directory": "output-virtualbox-iso-win10",
-      "headless": false,
+      "headless": true,
       "boot_wait": "2m",
       "ssh_username": "admin",
       "ssh_password": "admin",
