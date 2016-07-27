@@ -89,8 +89,8 @@
       "type": "virtualbox-iso",
       "name": "Windows 10",
       "iso_urls": [
-        "./iso/Windows 10 ver. 1511.iso",
-        "http://it.pennmanor.net/Windows10ver1511.iso"
+        "http://it.pennmanor.net/Windows10ver1511.iso",
+        "./iso/Windows 10 ver. 1511.iso"
       ],
       "iso_checksum_type": "none",
       "output_directory": "output-virtualbox-iso-win10",
