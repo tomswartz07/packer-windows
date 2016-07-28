@@ -54,7 +54,7 @@
             <CopyProfile>false</CopyProfile>
             <!-- Use generic volume license key for unlimited syspreps -->
             <!-- https://technet.microsoft.com/en-us/library/jj612867.aspx -->
-            <ProductKey>686ND-TCP2R-RPFWG-MH2RR-MWRB3</ProductKey>
+            <ProductKey>NPPR9-FWDCX-D2C8J-H872K-2YT43</ProductKey>
             <RegisteredOrganization>Penn Manor School District</RegisteredOrganization>
             <OEMName>Penn Manor School District</OEMName>
             <BluetoothTaskbarIconEnabled>true</BluetoothTaskbarIconEnabled>
