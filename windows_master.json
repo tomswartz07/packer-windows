@@ -92,7 +92,8 @@
         "http://it.pennmanor.net/Windows10ver1511.iso",
         "./iso/Windows 10 ver. 1511.iso"
       ],
-      "iso_checksum_type": "none",
+      "iso_checksum_type": "md5",
+      "iso_checksum": "30d5846cce90f6bf728245d696e1b73f",
       "output_directory": "output-virtualbox-iso-win10",
       "headless": true,
       "boot_wait": "2m",
