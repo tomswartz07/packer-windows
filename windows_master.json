@@ -145,6 +145,16 @@
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "only": ["Windows 81"],
+      "scripts": [
+        "./scripts/windowsApps.bat"
+      ],
+      "pause_before": "5m"
+    },
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
         "./scripts/pennmanorAD.bat"
       ],
@@ -171,11 +181,11 @@
     {
       "type": "powershell",
       "remote_path": "/tmp/powershell.ps1",
+      "only": ["Windows 10"],
       "scripts": [
         "./scripts/windows10apps.ps1"
       ],
-      "pause_before": "2m",
-      "only": ["Windows 10"]
+      "pause_before": "2m"
     },
     {
       "type": "shell",
