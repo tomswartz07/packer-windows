@@ -21,8 +21,7 @@ $AppList = "Microsoft.Reader",
            "Microsoft.bingFinance",
            "Microsoft.bingFoodAndDrink",
            "Microsoft.bingHealthAndFitness",
-           "Microsoft.ZuneVideo",
-           "Microsoft.Windows.Cortana"
+           "Microsoft.ZuneVideo"
 
 ForEach ($App in $AppList) {
    $AppxPackage = Get-AppxProvisionedPackage -online | Where {$_.DisplayName -eq $App}
