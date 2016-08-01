@@ -4,7 +4,7 @@
 
 This repository contains Windows templates that can be used to create boxes for Vagrant using Packer ([Website](http://www.packer.io)) ([Github](http://github.com/mitchellh/packer)).
 
-This repo began by borrowing bits from the VeeWee Windows templates (https://github.com/jedi4ever/veewee/tree/master/templates). Modifications were made to work with Packer and the VMware Fusion / VirtualBox providers for Packer and Vagrant.
+This repo began by borrowing bits from the [VeeWee Windows templates](https://github.com/jedi4ever/veewee/tree/master/templates). Modifications were made to work with Packer and the VMware Fusion / VirtualBox providers for Packer and Vagrant.
 Further work has been done based upon Joe Fitzgerald's original [Packer Windows](https://github.com/joefitzgerald/packer-windows) code.
 
 ### Packer Version
@@ -15,11 +15,11 @@ Further work has been done based upon Joe Fitzgerald's original [Packer Windows]
 
 The following Windows versions are known to work (built with VMware Fusion 6.0.4 and VirtualBox 4.3.12):
 
- * Windows 2012 R2
- * Windows 2012 R2 Core
- * Windows 2012
+ * Windows 10
  * Windows 8.1
  * Windows 7
+
+Other versions, such as Server 2012R2, can also easily be added.
 
 ### Windows Editions
 
@@ -44,9 +44,10 @@ Individual 'private' activation keys can be added to the image following the ini
 The scripts in this repo will install all Windows updates – by default – during Windows Setup.
 
 This is a _very_ time consuming process, depending on the age of the OS and the quantity of updates released since the last service pack.
+For example, a Windows 8.1 build which includes Windows Updates can take upwards of six to eight hours.
 
 If you have a local WSUS, it's possible to direct Windows to use this server instead.
-This will exponentially speed up the setup process.
+This will exponentially speed up the setup process, as the files will not be limited by Microsoft's downlink speed.
 
 ```dosbatch
 net stop wuauserv
@@ -61,7 +62,10 @@ cscript C:\temp.vbs
 net start wuauserv
 ```
 
-If you do not have a local WSUS, you might want to do yourself a favor during development and disable this functionality, by commenting out the `WITH WINDOWS UPDATES` section and uncommenting the `WITHOUT WINDOWS UPDATES` section in `Autounattend.xml`:
+If you do not have a local WSUS, you might want to do yourself a favor during
+development and disable this functionality, by commenting out the `WITH WINDOWS
+UPDATES` section and uncommenting the `WITHOUT WINDOWS UPDATES` section in
+`Autounattend.xml`:
 
 ```xml
 <!-- WITHOUT WINDOWS UPDATES -->
@@ -100,8 +104,11 @@ Doing so will give you hours back in your day, which is a good thing.
 
 ### OpenSSH / WinRM
 
-Currently, [Packer](http://packer.io) has a single communicator that uses SSH. This means we need an SSH server installed on Windows - which is not optimal as we could use WinRM to communicate with the Windows VM. In the short term, everything works well with SSH; in the medium term, work is underway on a WinRM communicator for Packer.
-
+Previously, [Packer](http://packer.io) had a single communicator that uses SSH.
+This means we need an SSH server installed on Windows - which is not optimal
+as we could use WinRM to communicate with the Windows VM. In the short term,
+everything works well with SSH; in the medium term, work is underway on a WinRM
+communicator for Packer.
 There is a build step in the post-image answer files that will remove the SSH program.
 
 ### Using .box Files With Vagrant
@@ -116,7 +123,7 @@ WinRM to communicate with the box.
 4. Move the ISO to the `iso` directory
 5. Update the .json file setting `iso_url` accordingly.
 6. Update the .json file setting `iso_checksum` accordingly.
-7. Run `packer build <windows_version>.json`
+7. Run `packer build -only "<Windows Version>" windows_master.json`
 
 ### Setting up Jenkins for Automatic Building
 Jenkins is a Continuous Integration program, that can be used for regularly scheduling builds of the image.
@@ -135,14 +142,13 @@ The 'slave', or the box that will build the image must have the following:
 #### Jenkins Job Configuration
 The current job to build the WDS Image is: `District - WDS Image Build`.
 
-The image will build if either of the two following conditions are met:
-1. Midnight on 17th of the month
-2. Midnight on 26th of the month
-3. A Git Commit has been merged to the packer-windows git project
+The image will build if either of the following conditions are met:
+1. Midnight on any Friday
+2. A Git Commit has been merged to the packer-windows git project
 
 The job has two distinct build steps:
 1. Image creation via Packer
-2. Image distribution via 'shell commands'
+2. Image distribution via 'Windows shell commands'
 
 The images are distributed as a post-build step to the main WDS Server(s); currently `Selenium` and `2012WDS`.
 Each of the WDS servers has a distinct definition in the slave's /etc/fstab.
