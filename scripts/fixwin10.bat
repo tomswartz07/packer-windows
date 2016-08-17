@@ -1,9 +1,16 @@
 :: Fix various Windows 10 'features' and options
+::
+:: This will disable them during the build, but Sysprep will likely reset these keys.
+:: It wouldn't hurt to include this as part of the OOBE Unattend.xml scripts
 
 :: Disable Telemetry
 ::
 echo "" > C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
+
+:: Disable Cortana
+:: Kill it with fire, using the only method available to Pro/Edu users
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0 /f
 
 :: Disable WiFi Sense
 :: WiFi Sense is a 'feature' that will share Wireless Network information
