@@ -24,6 +24,10 @@ sc config "dwmappushservice" start= disabled
 sc stop "DiagTrack"
 sc config "DiagTrack" start= disabled
 
+:: Speed up logins by preventing the First Login Animation
+::
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableFirstLoginAnimation /t REG_DWORD /d 0 /f
+
 :: Disable Touch Screen Keyboard
 ::
 sc stop "TabletInputService"
