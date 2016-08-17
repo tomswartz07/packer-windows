@@ -5,6 +5,18 @@
 echo "" > C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
 
+:: Disable WiFi Sense
+:: WiFi Sense is a 'feature' that will share Wireless Network information
+:: with those in the user's address book.
+::
+:: Great idea, folks.
+::
+reg add "HKLM\SOFTWARE\Policies\Microsoft\WcmSvc\wifinetworkmanager\config" /v PowerDelayLowPowerScan /t REG_DWORD /d 00124f80 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\WcmSvc\wifinetworkmanager\config" /v WiFiPhoneBlueOEMMigrationDone /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\WcmSvc\wifinetworkmanager\config" /v RequestedNdccConfig /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\WcmSvc\wifinetworkmanager\config" /v NotificationCleanupNeeded /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\WcmSvc\wifinetworkmanager\config" /v AutoConnectAllowedOEM /t REG_DWORD /d 0 /f
+
 :: Disable Diagnosics Tracking Service
 ::
 sc stop "dmwappushservice"
